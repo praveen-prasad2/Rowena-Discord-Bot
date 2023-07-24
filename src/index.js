@@ -19,8 +19,19 @@ client.on("messageCreate", (message) => {
     return;
   }
 
-  if (message.content === "Hello") {
+  if (message.content === "hello") {
     message.reply("What’s up buttercup?");
+  }
+});
+
+client.on("interactionCreate", (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+  if (interaction.commandName === "hey") {
+    interaction.reply("Hey handsome!");
+  }
+
+  if (interaction.commandName === "ping") {
+    interaction.reply("pong");
   }
 });
 
